@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Udaan Mission</title>
+    <link rel="stylesheet" href="mentor.css">
+</head>
+<body>
+    <div class="background-container">
+        <img src="udaan1.jpg" alt="Udaan Image" class="background-image">
+    </div>
+    <div class="form-container">
+        <h1>Be a Guiding Light with Udaan – Become a Mentor!</h1>
+        <p>Empower young minds and help them achieve their dreams by sharing your experience and wisdom.</p>
+        <form action="#" method="post">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="100" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Choose_not">Choose Not to Specify</option>
+            </select>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+            <label for="expertise">Areas of Expertise:</label>
+            <textarea id="expertise" name="expertise" rows="4" placeholder="Areas of Expertise..."></textarea>
+
+            <label for="availability">Availability (e.g., weekdays, weekends, time slots) :</label>
+            <textarea id="availability" name="availability" rows="2" required></textarea>
+
+            <label for="mode">Preferred Mentorship Mode (e.g., online, offline, hybrid) :</label>
+            <select id="mode" name="mode" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Male">Online</option>
+                <option value="Female">Offline</option>
+                <option value="Other">Hybrid</option>
+            </select>
+
+            <label for="goal">What Do You Hope to Achieve as a Mentor? </label>
+            <textarea id="goal" name="goal" rows="4" required></textarea>
+
+            <div class="tacbox">
+                <input class="input" id="checkbox" type="checkbox"/>
+                <label for="checkbox"> I agree to these <a href="mentorguidelines.html">Mentor Guidelines</a></label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Udaan Mission</title>
+    <link rel="stylesheet" href="donor.css">
+    <script>
+        async function fetchLocationDetails() {
+            const pincode = document.getElementById('pincode').value;
+
+            // Check if pincode is valid (length and numbers only)
+            if (!/^\d{6}$/.test(pincode)) {
+                alert("Please enter a valid 6-digit pincode.");
+                return;
+            }
+
+            try {
+                // Replace this with an actual API endpoint
+                const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
+                const data = await response.json();
+
+                if (data[0].Status === "Success") {
+                    const locationDetails = data[0].PostOffice[0];
+                    document.getElementById('city').value = locationDetails.District;
+                    document.getElementById('state').value = locationDetails.State;
+                } else {
+                    alert("Pincode not found. Please enter a valid pincode.");
+                }
+            } catch (error) {
+                console.error("Error fetching location details:", error);
+                alert("Failed to fetch location details. Please try again later.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="background-container">
+        <img src="udaan1.jpg" alt="Udaan Image" class="background-image">
+    </div>
+    <div class="form-container">
+        <h1>Donor Registration</h1>
+        <p>
+            This form is mandatory to be filled out as it is required for filing Form 10B, a crucial audit report for organizations under Section 12A of the Income Tax Act, 1961. 
+            <br>Donations cannot be accepted anonymously to ensure compliance with tax regulations.<br>
+            <a href="https://www.incometax.gov.in/iec/foportal/help/all-topics/statutory-forms/popular-form/form-10B-faq">10B Form Guidelines</a>
+        </p>
+        <form action="#" method="post">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="LastName FirstName MiddleName" required>
+
+            <label for="pan">Permanent Account Number:</label>
+            <input type="text" id="pan" name="pan" pattern="[A-Z 0-9]{10}" placeholder="Enter PAN" required>
+
+           
+            <label for="flat-street">Flat and Street:</label>
+            <input type="text" id="flat-street" name="flat_street" placeholder="Flat No., Street Name" >
+
+            <label for="area">Area:</label>
+            <input type="text" id="area" name="area" placeholder="Area" >
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" placeholder="Pincode" maxlength="6" onblur="fetchLocationDetails()" >
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" placeholder="City" readonly >
+
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" placeholder="State" readonly >
+
+            
+            
+            <!-- Razorpay Donate Now Button -->
+            <button id="pay-btn" class="cta-btn"><a href="pay.html" style="color:white; text-decoration:none">Donate Now</a></button>
+
+<!--<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    document.getElementById('pay-btn').onclick = function () {
+        var options = {
+            "key": "rzp_test_FOXgK7mifqtjiU", // Replace with your Razorpay Key ID
+            "amount": "500000", // Amount in paise (e.g., 500000 paise = ₹5000)
+            "currency": "INR",
+            "name": "UDAAN",
+            "description": "Support Us",
+            "image": "img/favicon.ico", // Optional: Your logo URL
+            "handler": function (response) {
+                alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                // You can add a server call here to save payment details.
+            },
+            "prefill": {
+                "name": "Rajesh Ghai", // Optional: Prefilled user name
+                "email": "rajeshghai101@gmail.com", // Optional: Prefilled email
+                "contact": "9876543210" // Optional: Prefilled phone number
+            },
+            "theme": {
+                "color": "#1dbf73" // Custom theme color
+            }
+        };
+
+        // Open Razorpay Checkout
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+
+        // Prevent default action
+        return false;
+    }
+</script>-->
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        /*.background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+            z-index: -1;
+            overflow:hidden;
+            background-size: 200%;
+        }
+
+        .background-image {
+            width: 100%;
+            height:100%;
+            opacity: 0.5;
+            object-fit: cover;
+            
+        }*/
+        .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.background-image {
+    width: 107%;
+    height: auto;
+    min-height: 100%;
+    opacity: 0.5;
+    object-fit: cover;
+   
+}
+        
+        
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color:  #036137;
+        }
+        h3
+        {
+            text-align: center;
+            color: #020f09;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            color: #036137;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #1dbf73;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1dbf73;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color:  #036137;
+
+            .form-group .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        /*.form-group .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .form-group .checkbox-label input {
+            margin-right: 10px;
+        }*/
+       
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <img src="child.jpg" alt="Udaan Image" class="background-image">
+    </div>
+    <div class="form-container">
+        <h1><strong>Udaan Child Enrollment Form</strong></h1>
+        <form action="" method="post">
+            <!-- Personal Information -->
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="childName">Child's Full Name:</label>
+                <input type="text" id="childName" name="childName" placeholder="Enter full name" required>
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Education -->
+            <h3>Educational Background</h3>
+            <div class="form-group">
+                <label for="currentEducation">Current Education Level:</label>
+                <select id="currentEducation" name="currentEducation" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="secondary">Secondary School</option>
+                    <option value="highSchool">High School</option>
+                    <option value="college">College/University</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="educationalGoals">Future Educational Goals:</label>
+                <textarea id="educationalGoals" name="educationalGoals" rows="3" placeholder="Describe educational aspirations..."></textarea>
+            </div>
+
+            <!-- Skill Development -->
+            <h3>Skill Development</h3>
+            <div class="form-group">
+                <label for="skillsInterest">Areas of Interest for Training:</label>
+                <select id="skillsInterest" name="skillsInterest">
+                    <option value="" disabled selected>Select</option>
+                    <option value="vocationalTraining">Vocational Training</option>
+                    <option value="softSkills">Soft Skills (Communication, Teamwork)</option>
+                    <option value="professionalGrooming">Professional Grooming</option>
+                    <option value="careerGuidance">Career Guidance</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="otherNeed">Please Specify (if Other):</label>
+                <textarea id="otherNeed" name="otherNeed" rows="2" placeholder="Other Skill training..."></textarea>
+            </div>
+
+            <!-- Behavioral Support -->
+            <h3>Behavioral and Emotional Support</h3>
+            <div class="form-group">
+                <label for="behavioralChallenges">Behavioral Challenges (if any):</label>
+                <textarea id="behavioralChallenges" name="behavioralChallenges" rows="3" placeholder="Describe challenges faced..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="emotionalSupport">Need for Emotional Support:</label>
+                <textarea id="emotionalSupport" name="emotionalSupport" rows="3" placeholder="Explain support required..."></textarea>
+            </div>
+
+            <h3>Guardian Details</h3>
+            <div class="form-group">
+                <label for="guardianName">Guardian's Full Name:</label>
+                <input type="text" id="guardianName" name="guardianName" placeholder="Enter guardian's name" required>
+            </div>
+            <div class="form-group">
+                <label for="guardianContact">Guardian's Contact Number:</label>
+                <input type="tel" id="guardianContact" name="guardianContact" pattern="[0-9]{10}" placeholder="Enter guardian's contact No"required>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+                <button type="submit">Submit Registration</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
